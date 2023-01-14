@@ -5,7 +5,7 @@ import Notes from './Notes';
 
 function Home() {
   return (
-    <div className='container my-3'>
+    <div className='container my-3 mt-5 pt-2'>
       <div className="addNote">
         <h3>Add a Note</h3>
         <form>
