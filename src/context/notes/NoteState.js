@@ -4,7 +4,7 @@ import NoteContext from "./noteContext";
 const NoteState = (props) => {
     const intialNote = [
         {
-            "_id": "63b7f49290ee35c9ef7cf3b3",
+            "_id": "63b7f49290ee35c9ef7cf3db3",
             "user": "63b6c961111bb4e33ec08ba0",
             "title": "My Title",
             "description": "My Description for this note",
@@ -13,7 +13,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "63b7f49490ee35c9ef7cf3b5",
+            "_id": "63b7f49490ee35c9def7cf3b5",
             "user": "63b6c961111bb4e33ec08ba0",
             "title": "My Title",
             "description": "My Description for this note",
@@ -22,7 +22,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "63b7f49a90ee35c9ef7cf3b8",
+            "_id": "63b7f49a90ee35dc9ef7cf3b8",
             "user": "63b6c961111bb4e33ec08ba0",
             "title": "My Title",
             "description": "My Description for this note",
@@ -31,7 +31,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "63b7f49a90ee35c9ef7cf3b8",
+            "_id": "63b7f49a90ee3d5cd9ef7cf3b8",
             "user": "63b6c961111bb4e33ec08ba0",
             "title": "My Title",
             "description": "My Description for this note",
@@ -40,7 +40,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "63b7f49a90ee35c9ef7cf3b8",
+            "_id": "63b7f49a90ee3d5c9def7cf3b8",
             "user": "63b6c961111bb4e33ec08ba0",
             "title": "My Title",
             "description": "My Description for this note",
@@ -49,7 +49,7 @@ const NoteState = (props) => {
             "__v": 0
         },
         {
-            "_id": "63b7f49a90ee35c9ef7cf3b8",
+            "_id": "63b7f49a90dee35c9ef7cf3b8",
             "user": "63b6c961111bb4e33ec08ba0",
             "title": "My Title",
             "description": "My Description for this note",
@@ -63,7 +63,7 @@ const NoteState = (props) => {
     // Add a Notes
     const addNote = (title, description, tag)=>{
         const note = {
-            "_id": "63b7f49a90ee35c9ef7cf3b8c",
+            "_id": "63b7f49a90dee35c9ef7cf3b8c",
             "user": "63b6c961111bb4e33ec08ba0",
             "title": title,
             "description": description,
@@ -76,8 +76,10 @@ const NoteState = (props) => {
     }
 
     // Delete a Notes
-    const deleteNote = ()=>{
-
+    const deleteNote = (id)=>{
+        console.log("Deleting the note wit id=" + id);
+        const newNote = notes.filter((note)=>{return note._id!==id});
+        setNotes(newNote);
     }
 
     // Edit a Notes
