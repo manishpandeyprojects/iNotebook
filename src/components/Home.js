@@ -3,11 +3,11 @@ import Notes from './Notes';
 
 
 
-function Home() {
+function Home(props) {
   return (
-    <div className='container my-3 mt-5 pt-2'>
+    <div className='container'>
       <div className="yourNote my-3">
-        <Notes />
+        <Notes showAlert={props.showAlert} />
       </div>
     </div>
   )

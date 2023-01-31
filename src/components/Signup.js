@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
     const host = "http://localhost:5000";
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
@@ -14,7 +14,6 @@ const Signup = () => {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 headers: {
                     'Content-Type': 'application/json'
-
                 },
                 body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password })
             });
@@ -25,11 +24,12 @@ const Signup = () => {
             if (json.success) {
                 localStorage.setItem('token', json.authtoken);
                 navigate('/', { replace: true });
+                props.showAlert("Account created successfully", "success");
             } else {
-                alert('Invalid credentials');
+                props.showAlert("Invalid Details", "danger");
             }
         } else {
-            alert("Please enter the same password to continue");
+            props.showAlert("Password and confirm does match, Please fill properly.", "danger");
         }
     }
 
@@ -38,7 +38,7 @@ const Signup = () => {
     }
 
     return (
-        <div className="container my-3 mt-5 pt-2">
+        <div className="container">
             <h3 className='my-3'>Sign Up</h3>
             <form className='my-2' onSubmit={handleSubmit}>
                 <div className="mb-3">
