@@ -4,7 +4,7 @@ import NoteContext from "./noteContext";
 const NoteState = (props) => {
     const host = "http://localhost:5000";
 
-    const intialNote = [];
+    const intialNote = [];  
     const [notes, setNotes] = useState(intialNote);
 
     // Get a Notes
@@ -13,14 +13,14 @@ const NoteState = (props) => {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNiNmM5NjExMTFiYjRlMzNlYzA4YmEwIn0sImlhdCI6MTY3Mjk5ODQ2NX0.WNxhE3qhgGQvfLuHidH2BgmDkd-naDk6JstwhEtwD3I',
-
+                'auth-token': localStorage.getItem('token'),
             }
         });
 
         const json = await response.json();
         console.log(json);
-        setNotes(notes.concat(json))
+        // setNotes(notes.concat(json))
+        setNotes(json);
     }
 
     // Add a Notes
@@ -29,7 +29,7 @@ const NoteState = (props) => {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNiNmM5NjExMTFiYjRlMzNlYzA4YmEwIn0sImlhdCI6MTY3Mjk5ODQ2NX0.WNxhE3qhgGQvfLuHidH2BgmDkd-naDk6JstwhEtwD3I',
+                'auth-token': localStorage.getItem('token'),
 
             },
             body: JSON.stringify({title, description, tag})
@@ -47,7 +47,7 @@ const NoteState = (props) => {
             method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNiNmM5NjExMTFiYjRlMzNlYzA4YmEwIn0sImlhdCI6MTY3Mjk5ODQ2NX0.WNxhE3qhgGQvfLuHidH2BgmDkd-naDk6JstwhEtwD3I',
+                'auth-token': localStorage.getItem('token'),
 
             }
         });
@@ -64,7 +64,7 @@ const NoteState = (props) => {
             method: 'PUT', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNiNmM5NjExMTFiYjRlMzNlYzA4YmEwIn0sImlhdCI6MTY3Mjk5ODQ2NX0.WNxhE3qhgGQvfLuHidH2BgmDkd-naDk6JstwhEtwD3I',
+                'auth-token': localStorage.getItem('token'),
 
             },
             body: JSON.stringify({title, description, tag})

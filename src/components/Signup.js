@@ -39,7 +39,7 @@ const Signup = (props) => {
 
     return (
         <div className="container">
-            <h3 className='my-3'>Sign Up</h3>
+            <h3 className='my-3'>Sign Up to use the iNotebook</h3>
             <form className='my-2' onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>

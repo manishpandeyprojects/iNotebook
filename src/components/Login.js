@@ -13,7 +13,6 @@ const Login = (props) => {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json'
-
             },
             body: JSON.stringify({email: credentials.email, password: credentials.password})
         });
@@ -36,7 +35,7 @@ const Login = (props) => {
 
     return (
         <div className="container">
-            <h3 className='my-3'>Login</h3>
+            <h3 className='my-3'>Login to use the iNotebook</h3>
             <form className='my-2' onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
